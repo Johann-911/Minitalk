@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/20 17:17:21 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/21 18:09:54 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	new_node = malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
+}

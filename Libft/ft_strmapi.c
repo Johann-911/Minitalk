@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/19 19:59:58 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/20 15:41:56 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*str;
+	int		i;
+	int		length;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	i = 0;
+	length = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (length + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[length] = '\0';
+	return (str);
+}

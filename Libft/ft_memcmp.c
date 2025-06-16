@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/13 15:36:13 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/17 15:26:17 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned const char	*str1;
+	unsigned const char	*str2;
+	unsigned int		i;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	str1 = s1;
+	str2 = s2;
+	i = 0;
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	if (i < n)
+	{
+		if (str1[i] != str2[i])
+		{
+			return (str1[i] - str2[i]);
+		}
+	}
+	return (0);
+}

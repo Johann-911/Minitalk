@@ -6,13 +6,13 @@
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:02:55 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/11 12:48:02 by jtoumani         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:58:58 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	send_signals(int pid, char *str)
+void	send_signal(int pid, char *str)
 {
 	int	i;
 	int	bit;
@@ -47,9 +47,9 @@ int	main(int argc, char **argv)
 	{
 		pid = ft_atoi(argv[1]);
 		str = argv[2];
-		send_signals(pid, str);
+		send_signal(pid, str);
 	}
 	else
-		exit 1;
-	return 0;
+		exit (1);
+	return (0);
 }

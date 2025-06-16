@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/14 14:03:30 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/20 15:39:32 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+	size_t	i;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	i = 0;
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < (size * count))
+	{
+		((char *)ptr)[i] = '\0';
+		i++;
+	}
+	return (ptr);
+}

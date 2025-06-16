@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/12 15:04:08 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/04/02 14:21:14 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	unsigned char	chr;
+	char			*before;
 
+	chr = c;
+	before = NULL;
+	while (*s)
+	{
+		if (*s == chr)
+		{
+			before = (char *)s;
+		}
+		s++;
+	}
+	if (chr == '\0')
+		return ((char *)s);
+	return (before);
+}
 
-
-
-
-
-
-
-
-
-
-
-#endif
+// int main()
+// {
+//     char *a;
+//     char *s = "Hallo";
+//     a = ft_strrchr(s, 'k');
+//     printf("%s", a);
+//     return (0);
+// }

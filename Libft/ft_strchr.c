@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/12 15:04:41 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/20 15:41:39 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned char	chr;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	chr = c;
+	while (*s)
+	{
+		if (*s == chr)
+			return ((char *)s);
+		s++;
+	}
+	if (chr == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+// int main()
+// {
+//     char *a;
+//     char *s = "Hallo";
+//     a = ft_strchr(s, 'l');
+//     printf("%s", a);
+//     return (0);
+// }

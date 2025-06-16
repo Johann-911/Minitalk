@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 12:03:40 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:07 by jtoumani         ###   ########.fr       */
+/*   Created: 2025/03/14 16:56:29 by jtoumani          #+#    #+#             */
+/*   Updated: 2025/03/20 15:48:08 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-#define MINITALK_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <signal.h>
-#include "Libft/libft.h"      
-#include "Printf/ft_printf.h"
+char	*ft_strdup(const char *s1)
+{
+	char	*dupe;
+	int		i;
 
-
-
-
-
-
-
-
-
-
-
-
-#endif
+	i = 0;
+	while (s1[i])
+		i++;
+	dupe = (char *)malloc(i + 1 * sizeof(char));
+	if (dupe == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		dupe[i] = s1[i];
+		i++;
+	}
+	dupe[i] = '\0';
+	return (dupe);
+}
