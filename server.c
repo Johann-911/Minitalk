@@ -6,11 +6,22 @@
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:02:57 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/12 12:22:28 by jtoumani         ###   ########.fr       */
+/*   Updated: 2025/06/16 11:45:08 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	realloc()
+{
+
+
+
+
+
+	
+}
+
 
 void	handle_str()
 {
@@ -43,7 +54,6 @@ void handle_signal(int signal)
 		bit_count = 0;
 	}
  
-	
 }
 
 int main()
@@ -62,7 +72,3 @@ int main()
 		pause;
 	return 0;
 }
-
-
-
-
