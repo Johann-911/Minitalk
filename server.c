@@ -6,7 +6,7 @@
 /*   By: jtoumani <jtoumani@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:02:57 by jtoumani          #+#    #+#             */
-/*   Updated: 2025/06/16 16:00:12 by jtoumani         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:01:37 by jtoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void handle_str(char **str, unsigned char c)
 	i = 0;
 	if (*str != NULL)
     {
-        while(*str[i])
-            i++;
+		while((*str)[i])
+		i++;
     }
 	new_str = ft_realloc(*str, i+ 1, i + 2);
 	if(!new_str)
@@ -49,10 +49,14 @@ void handle_str(char **str, unsigned char c)
 		return;
 	}
 	new_str[i] = c;
-	new_str[i +1 ] = '\0';
+	new_str[i + 1 ] = '\0';
 	*str = new_str;
-	
-	ft_printf("Message : %s\n", *str);
+	if (c == '\0')
+	{
+		if (*str)
+			ft_printf("Full Message: %s\n", *str);
+		return (free(*str), (void)(*str = NULL));
+	}
 }
 
 
@@ -63,7 +67,6 @@ void handle_signal(int signal)
 	static int bit_count;
 	static char *str;
 	
-	bit_count = 0;
 	if(signal == SIGUSR1)
 		c |= (1 << (7 - bit_count));
 	bit_count++;
@@ -73,7 +76,6 @@ void handle_signal(int signal)
 		bit_count = 0;
 		c = 0;
 	}
- 
 }
 
 int main()
@@ -82,6 +84,8 @@ int main()
 	struct sigaction	siga;
 
 	pid = getpid();
+	if(pid == -1)
+		exit(1);
 	ft_printf("server id: %d\n", pid);
 	siga.sa_handler = handle_signal;
 	siga.sa_flags = SA_RESTART;
